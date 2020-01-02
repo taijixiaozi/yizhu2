@@ -154,6 +154,60 @@ class Tree
         return $this->ret;
     }
 
+    public function getNewTree($myId, $str, $sid = 0, $adds = '', $str_group = '')
+    {
+        $number = 1;
+        //一级栏目
+        $child = $this->getNewChild($myId);
+
+        if (is_array($child)) {
+            $total = count($child);
+
+            foreach ($child as $key => $value) {
+                $j = $k = '';
+                if ($number == $total) {
+                    $j .= $this->icon[2];
+                } else {
+                    $j .= $this->icon[1];
+                    $k = $adds ? $this->icon[0] : '';
+                }
+                $spacer   = $adds ? $adds . $j : '';
+                $selected = $value['id'] == $sid ? 'selected' : '';
+                $id       = 0;
+                $nstr     = '';
+                $parentId = $value['parent_id'];
+                @extract($value);
+
+
+                $parentId == 0 && $str_group ? eval("\$nstr = \"$str_group\";") : eval("\$nstr = \"$str\";");
+
+                $this->ret .= $nstr;
+                $nbsp      = $this->nbsp;
+                $this->getNewTree($id, $str, $sid, $adds . $k . $nbsp, $str_group);
+                $number++;
+            }
+        }
+        return $this->ret;
+    }
+
+
+    /**
+     * 得到子级数组
+     * @param int
+     * @return array
+     */
+    public function getNewChild($myId)
+    {
+        $newArr = [];
+        if (is_array($this->arr)) {
+            foreach ($this->arr as $id => $a) {
+                if (isset($a['parent_id']) && $a['parent_id'] == $myId) {
+                    $newArr[$id] = $a;
+                }
+            }
+        }
+        return $newArr ? $newArr : false;
+    }
     /**
      * 生成树型结构数组
      * @param int myID，表示获得这个ID下的所有子级

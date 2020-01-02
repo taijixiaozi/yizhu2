@@ -82,6 +82,7 @@ class PublicController extends AdminBaseController
 
         $result = Db::name('user')->where($where)->find();
 
+       
         if (!empty($result) && $result['user_type'] == 1) {
             if (cmf_compare_password($pass, $result['user_pass'])) {
                 $groups = Db::name('RoleUser')
