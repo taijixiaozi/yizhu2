@@ -23,7 +23,6 @@ class IndexController extends HomeBaseController
     //案例页面
     public function villa_project()
     {
-        return 'false';
         return $this->fetch(':villa_project');
     }
 

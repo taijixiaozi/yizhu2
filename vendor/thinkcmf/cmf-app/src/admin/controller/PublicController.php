@@ -61,6 +61,7 @@ class PublicController extends AdminBaseController
         if (empty($captcha)) {
             $this->error(lang('CAPTCHA_REQUIRED'));
         }
+
         //验证码
         if (!cmf_captcha_check($captcha)) {
             $this->error(lang('CAPTCHA_NOT_RIGHT'));
@@ -68,12 +69,15 @@ class PublicController extends AdminBaseController
 
         $name = $this->request->param("username");
         if (empty($name)) {
+            echo 111;exit;
             $this->error(lang('USERNAME_OR_EMAIL_EMPTY'));
         }
+
         $pass = $this->request->param("password");
         if (empty($pass)) {
             $this->error(lang('PASSWORD_REQUIRED'));
         }
+
         if (strpos($name, "@") > 0) {//邮箱登陆
             $where['user_email'] = $name;
         } else {
@@ -81,9 +85,8 @@ class PublicController extends AdminBaseController
         }
 
         $result = Db::name('user')->where($where)->find();
-
-       
         if (!empty($result) && $result['user_type'] == 1) {
+
             if (cmf_compare_password($pass, $result['user_pass'])) {
                 $groups = Db::name('RoleUser')
                     ->alias("a")

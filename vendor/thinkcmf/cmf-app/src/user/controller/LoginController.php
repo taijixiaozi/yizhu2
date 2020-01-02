@@ -118,7 +118,6 @@ class LoginController extends HomeBaseController
      */
     public function passwordReset()
     {
-
         if ($this->request->isPost()) {
             $validate = new \think\Validate([
                 'captcha'           => 'require',
