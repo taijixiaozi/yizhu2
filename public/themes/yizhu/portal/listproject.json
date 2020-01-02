@@ -1,0 +1,6 @@
+{
+  "name": "文章列表页",
+  "action": "portal/MyCaseList/index",
+  "description": "文章列表模板文件",
+  "order": 20.0
+}
