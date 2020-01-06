@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : host
+ Source Server         : local
  Source Server Type    : MySQL
- Source Server Version : 80012
+ Source Server Version : 50726
  Source Host           : localhost:3306
  Source Schema         : yizhu
 
  Target Server Type    : MySQL
- Target Server Version : 80012
+ Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 05/01/2020 22:29:25
+ Date: 06/01/2020 18:16:49
 */
 
 SET NAMES utf8mb4;
@@ -38,7 +38,7 @@ CREATE TABLE `yz_admin_menu`  (
   INDEX `status`(`status`) USING BTREE,
   INDEX `parent_id`(`parent_id`) USING BTREE,
   INDEX `controller`(`controller`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '后台菜单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '后台菜单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_admin_menu
@@ -229,10 +229,10 @@ CREATE TABLE `yz_asset`  (
   `file_path` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '文件路径,相对于upload目录,可以为url',
   `file_md5` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '文件md5值',
   `file_sha1` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `suffix` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '文件后缀名,不包括点',
-  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '其它详细信息,JSON格式',
+  `suffix` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '文件后缀名,不包括点',
+  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '其它详细信息,JSON格式',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '资源表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '资源表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_asset
@@ -255,6 +255,12 @@ INSERT INTO `yz_asset` VALUES (15, 1, 24514, 1578222964, 1, 0, 'd47785bc2cdbf3b9
 INSERT INTO `yz_asset` VALUES (16, 1, 48421, 1578223020, 1, 0, '3db2c187a8a25212541fd425afceb18784400845e919a13354f383778c67f094', '56fbb4a29e311d00e831ad764fd7532de443a060.jpg', 'portal/20200105/aae8d76adf60ee0b034b866fadb09f27.jpg', '3db2c187a8a25212541fd425afceb187', '8d17eb8759f8d34820c85cd414efa67f28116146', 'jpg', NULL);
 INSERT INTO `yz_asset` VALUES (17, 1, 75098, 1578223081, 1, 0, 'e483945b99edef6ee140937da9d838e2bdcf6e4bbf858d47c0f13ff6896b1166', 'db072521508f73dfbb769c0893147ac428912609.jpg', 'portal/20200105/d834306f1097c795d510a828a34d67fb.jpg', 'e483945b99edef6ee140937da9d838e2', 'e543a90a710ee6ea83b61ebd3d5e635e21b72d56', 'jpg', NULL);
 INSERT INTO `yz_asset` VALUES (18, 1, 58163, 1578223160, 1, 0, '123642abfb20b18094edd9f3586715fd510da8b312d012260ee3442f7d361b98', 'd2d9da9f7271db5cbc92948ee397e932a5237a99.jpg', 'portal/20200105/0cbdb2bb0f3ac6a40b2e62eb14791bc5.jpg', '123642abfb20b18094edd9f3586715fd', 'f7310d46292b48139223732d1943eee9a4b7b615', 'jpg', NULL);
+INSERT INTO `yz_asset` VALUES (19, 1, 2802848, 1578289924, 1, 0, 'a7db4895f4dcdf38baac54df5d37b89e102cdee179b8d24251b97dc65571c2e8', '作品 (3).jpg', 'portal/20200106/8a4681ebdcc764dfb0a2bd8f961e4126.jpg', 'a7db4895f4dcdf38baac54df5d37b89e', '225f9cccf5965b439efce998d82147e7f448046c', 'jpg', NULL);
+INSERT INTO `yz_asset` VALUES (20, 1, 2595866, 1578289925, 1, 0, '8d4e916495371e6e29ac5e8875cb1f40ca99f93709e9c1dbce4b818c271b3d3b', '作品 (4).jpg', 'portal/20200106/001b79911251f70b93677f617a4184a3.jpg', '8d4e916495371e6e29ac5e8875cb1f40', 'e677290175926ae813bb6ffba1e9b3868630a7f5', 'jpg', NULL);
+INSERT INTO `yz_asset` VALUES (21, 1, 2295779, 1578289925, 1, 0, '17f279b4a52e27c58ecd8c2647814392b10f8868c39ad65b3c11164cdcb15a92', '作品 (6).jpg', 'portal/20200106/1037779dcbe1c60c223f62aed39631c3.jpg', '17f279b4a52e27c58ecd8c2647814392', '23a6df850a64d19e2c0f5950a1d2ea323bc9274a', 'jpg', NULL);
+INSERT INTO `yz_asset` VALUES (22, 1, 2190571, 1578289925, 1, 0, '967604352f6203914c7b5a99ea48b55f36b89885744c1ae68c53d214e443392d', '作品 (8).jpg', 'portal/20200106/3edb49ad6e11e475f8d3ba92ae83b001.jpg', '967604352f6203914c7b5a99ea48b55f', 'df1261a2ef907ffb5abcaf8d3b4672ed03331943', 'jpg', NULL);
+INSERT INTO `yz_asset` VALUES (23, 1, 2188515, 1578289925, 1, 0, '415053833a59abfbd41e75fb2502d542dd7c8ee4d515f1bedfb6e5d6ed4df767', '作品 (9).jpg', 'portal/20200106/503c7a3b1abb35e8580bc74eb47501af.jpg', '415053833a59abfbd41e75fb2502d542', '28afe3eec37c68b83d1e7a972b33172911a9c330', 'jpg', NULL);
+INSERT INTO `yz_asset` VALUES (24, 1, 2578255, 1578289933, 1, 0, '8e24701278cd10fe350707d36752e74a7a3cd8aaee3823a657212a766fa68d44', '作品 (1).png', 'portal/20200106/da39267cabd797576edf14f0f2aa4a4c.png', '8e24701278cd10fe350707d36752e74a', 'f2d850f1894653bb9620b175526c2714c72f1b0a', 'png', NULL);
 
 -- ----------------------------
 -- Table structure for yz_auth_access
@@ -277,16 +283,16 @@ DROP TABLE IF EXISTS `yz_auth_rule`;
 CREATE TABLE `yz_auth_rule`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '规则id,自增主键',
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '是否有效(0:无效,1:有效)',
-  `app` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '规则所属app',
-  `type` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '权限规则分类，请加应用前缀,如admin_',
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '规则唯一英文标识,全小写',
-  `param` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '额外url参数',
+  `app` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '规则所属app',
+  `type` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '权限规则分类，请加应用前缀,如admin_',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '规则唯一英文标识,全小写',
+  `param` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '额外url参数',
   `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '规则描述',
-  `condition` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '规则附加条件',
+  `condition` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '规则附加条件',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE,
   INDEX `module`(`app`, `status`, `type`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '权限规则表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '权限规则表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_auth_rule
@@ -484,8 +490,8 @@ CREATE TABLE `yz_comment`  (
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '评论者邮箱',
   `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '层级关系',
   `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '原文地址',
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '评论内容',
-  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '扩展属性',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '评论内容',
+  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '扩展属性',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `table_id_status`(`table_name`, `object_id`, `status`) USING BTREE,
   INDEX `object_id`(`object_id`) USING BTREE,
@@ -502,21 +508,12 @@ CREATE TABLE `yz_hook`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `type` tinyint(3) UNSIGNED NOT NULL DEFAULT 0 COMMENT '钩子类型(1:系统钩子;2:应用钩子;3:模板钩子;4:后台模板钩子)',
   `once` tinyint(3) UNSIGNED NOT NULL DEFAULT 0 COMMENT '是否只允许一个插件运行(0:多个;1:一个)',
-<<<<<<< HEAD
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '钩子名称',
-  `hook` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '钩子',
-  `app` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '应用名(只有应用钩子才用)',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '描述',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统钩子表' ROW_FORMAT = Dynamic;
-=======
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '钩子名称',
   `hook` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '钩子',
   `app` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '应用名(只有应用钩子才用)',
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '描述',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '系统钩子表' ROW_FORMAT = Dynamic;
->>>>>>> 0efe042f7d2a6e435c0aeef545f3ed5d9ec26945
 
 -- ----------------------------
 -- Records of yz_hook
@@ -600,10 +597,10 @@ CREATE TABLE `yz_hook_plugin`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `list_order` float NOT NULL DEFAULT 10000 COMMENT '排序',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '状态(0:禁用,1:启用)',
-  `hook` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '钩子名',
-  `plugin` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '插件',
+  `hook` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '钩子名',
+  `plugin` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '插件',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统钩子插件表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '系统钩子插件表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_link
@@ -614,15 +611,15 @@ CREATE TABLE `yz_link`  (
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态;1:显示;0:不显示',
   `rating` int(11) NOT NULL DEFAULT 0 COMMENT '友情链接评级',
   `list_order` float NOT NULL DEFAULT 10000 COMMENT '排序',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '友情链接描述',
-  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '友情链接地址',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '友情链接描述',
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '友情链接地址',
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '友情链接名称',
-  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '友情链接图标',
-  `target` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '友情链接打开方式',
-  `rel` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '链接与网站的关系',
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '友情链接图标',
+  `target` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '友情链接打开方式',
+  `rel` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '链接与网站的关系',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `status`(`status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '友情链接表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '友情链接表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_link
@@ -639,7 +636,7 @@ CREATE TABLE `yz_nav`  (
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '导航位置名称',
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '前台导航位置表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '前台导航位置表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_nav
@@ -658,12 +655,12 @@ CREATE TABLE `yz_nav_menu`  (
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态;1:显示;0:隐藏',
   `list_order` float NOT NULL DEFAULT 10000 COMMENT '排序',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
-  `target` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '打开方式',
-  `href` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '链接',
-  `icon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '图标',
-  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '层级关系',
+  `target` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '打开方式',
+  `href` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '链接',
+  `icon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '图标',
+  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '层级关系',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '前台导航菜单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '前台导航菜单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_nav_menu
@@ -724,11 +721,11 @@ DROP TABLE IF EXISTS `yz_option`;
 CREATE TABLE `yz_option`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `autoload` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '是否自动加载;1:自动加载;0:不自动加载',
-  `option_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '配置名',
+  `option_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '配置名',
   `option_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '配置值',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `option_name`(`option_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '全站配置表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '全站配置表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of yz_option
@@ -745,17 +742,17 @@ CREATE TABLE `yz_plugin`  (
   `has_admin` tinyint(3) UNSIGNED NOT NULL DEFAULT 0 COMMENT '是否有后台管理,0:没有;1:有',
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态;1:开启;0:禁用',
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '插件安装时间',
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '插件标识名,英文字母(惟一)',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '插件标识名,英文字母(惟一)',
   `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '插件名称',
-  `demo_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '演示地址，带协议',
-  `hooks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '实现的钩子;以“,”分隔',
+  `demo_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '演示地址，带协议',
+  `hooks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '实现的钩子;以“,”分隔',
   `author` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '插件作者',
-  `author_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '作者网站链接',
-  `version` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '插件版本号',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '插件描述',
-  `config` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '插件配置',
+  `author_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '作者网站链接',
+  `version` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '插件版本号',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '插件描述',
+  `config` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '插件配置',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '插件表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '插件表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_portal_case
@@ -768,19 +765,26 @@ CREATE TABLE `yz_portal_case`  (
   `tags` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '案例标签',
   `case_desc` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '案例描述',
   `case_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '案例内容',
+  `case_cost` int(10) NULL DEFAULT NULL COMMENT '案例造价',
+  `case_style` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '案例风格',
+  `case_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '案例户型',
+  `case_area` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '案例面积',
+  `property_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '楼盘名称',
   `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '案例展示缩略图',
   `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '更多图片',
+  `delete_time` int(10) NOT NULL,
   `create_time` int(10) NOT NULL,
   `update_time` int(10) NOT NULL,
-  `delete_time` int(10) NOT NULL,
+  `is_recommend` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否推荐 1为是;默认为0',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_portal_case
 -- ----------------------------
-INSERT INTO `yz_portal_case` VALUES (2, '这个是测试案例', 1, '测试子分类', '这个是测试案例', '<p>哈哈哈哈哈哈<br/></p>', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '{\"video\":\"\",\"thumbnail\":\"\",\"photos\":[{\"url\":\"portal\\/20200101\\/10ca1a8550de9f3e9bdd20baa95bfce5.jpg\",\"name\":\"9b2c6a2ff2c54624ff2783e318615472.jpg\"},{\"url\":\"portal\\/20200101\\/c4ecf0945cd3ac43486d44a13c166bad.jpg\",\"name\":\"8455a4186394eef77d00390b6edaff7b.jpg\"}]}', 2020, 1577889000, 0);
-INSERT INTO `yz_portal_case` VALUES (3, '测试案例2', 1, '测试测试', '测试测试', '<p>aaaaaa</p>', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '{\"video\":\"\",\"thumbnail\":\"\",\"photos\":[{\"url\":\"portal\\/20200101\\/10ca1a8550de9f3e9bdd20baa95bfce5.jpg\",\"name\":\"9b2c6a2ff2c54624ff2783e318615472.jpg\"},{\"url\":\"portal\\/20200101\\/c4ecf0945cd3ac43486d44a13c166bad.jpg\",\"name\":\"8455a4186394eef77d00390b6edaff7b.jpg\"}]}', 2020, 145234534, 0);
+INSERT INTO `yz_portal_case` VALUES (2, '这个是测试案例', 1, '测试子分类', '这个是测试案例', '<p>哈哈哈哈哈哈<br/></p>', NULL, NULL, NULL, NULL, NULL, 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '{\"video\":\"\",\"thumbnail\":\"\",\"photos\":[{\"url\":\"portal\\/20200101\\/10ca1a8550de9f3e9bdd20baa95bfce5.jpg\",\"name\":\"9b2c6a2ff2c54624ff2783e318615472.jpg\"},{\"url\":\"portal\\/20200101\\/c4ecf0945cd3ac43486d44a13c166bad.jpg\",\"name\":\"8455a4186394eef77d00390b6edaff7b.jpg\"}]}', 0, 2020, 1577889000, 0);
+INSERT INTO `yz_portal_case` VALUES (3, '测试案例2', 1, '测试测试', '测试测试', '<p>aaaaaa</p>', NULL, NULL, NULL, NULL, NULL, 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '{\"video\":\"\",\"thumbnail\":\"\",\"photos\":[{\"url\":\"portal\\/20200101\\/10ca1a8550de9f3e9bdd20baa95bfce5.jpg\",\"name\":\"9b2c6a2ff2c54624ff2783e318615472.jpg\"},{\"url\":\"portal\\/20200101\\/c4ecf0945cd3ac43486d44a13c166bad.jpg\",\"name\":\"8455a4186394eef77d00390b6edaff7b.jpg\"}]}', 0, 2020, 145234534, 0);
+INSERT INTO `yz_portal_case` VALUES (4, '名苑别墅', 1, '测试子分类 测试分类2', '123456', '<p>123456&nbsp;&nbsp;&nbsp;&nbsp;</p>', 1000, '美式', '大平层', '500', '流星花园', '', '{\"video\":\"\",\"thumbnail\":\"\",\"photos\":[{\"url\":\"portal\\/20200106\\/8a4681ebdcc764dfb0a2bd8f961e4126.jpg\",\"name\":\"\\u4f5c\\u54c1 (3).jpg\"},{\"url\":\"portal\\/20200106\\/001b79911251f70b93677f617a4184a3.jpg\",\"name\":\"\\u4f5c\\u54c1 (4).jpg\"},{\"url\":\"portal\\/20200106\\/1037779dcbe1c60c223f62aed39631c3.jpg\",\"name\":\"\\u4f5c\\u54c1 (6).jpg\"},{\"url\":\"portal\\/20200106\\/3edb49ad6e11e475f8d3ba92ae83b001.jpg\",\"name\":\"\\u4f5c\\u54c1 (8).jpg\"},{\"url\":\"portal\\/20200106\\/503c7a3b1abb35e8580bc74eb47501af.jpg\",\"name\":\"\\u4f5c\\u54c1 (9).jpg\"}]}', 0, 1970, 1920, 0);
 
 -- ----------------------------
 -- Table structure for yz_portal_casetags
@@ -809,16 +813,16 @@ CREATE TABLE `yz_portal_category`  (
   `delete_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '删除时间',
   `list_order` float NOT NULL DEFAULT 10000 COMMENT '排序',
   `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '分类名称',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '分类描述',
-  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '分类层级关系路径',
-  `seo_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  `seo_keywords` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  `seo_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  `list_tpl` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '分类列表模板',
-  `one_tpl` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '分类文章页模板',
-  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '扩展属性',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '分类描述',
+  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '分类层级关系路径',
+  `seo_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `seo_keywords` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `seo_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `list_tpl` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '分类列表模板',
+  `one_tpl` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '分类文章页模板',
+  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '扩展属性',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'portal应用 文章分类表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = 'portal应用 文章分类表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_portal_category
@@ -857,68 +861,69 @@ CREATE TABLE `yz_portal_designer`  (
   `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '设计师图片',
   `job` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '设计师职位',
   `style` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '擅长风格',
+  `is_recommend` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否推荐 1为是;默认为0',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_portal_designer
 -- ----------------------------
-INSERT INTO `yz_portal_designer` VALUES (1, 'wkkis', 14, '11111111111111111', 'hahahahhahha', 'portal/20191231/b59e341639ebaf39aaef3ed7f9d457e8.jpg', '设计总监', '1111111111111');
-INSERT INTO `yz_portal_designer` VALUES (2, 'Ocean', 100, '东方明珠', '干就完了11111111111111111111111111111', 'portal/20200105/389880c38f60c3b74091f5de31e42807.jpg', '设计小天才', NULL);
-INSERT INTO `yz_portal_designer` VALUES (3, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (4, '花花', 10, '故宫博物院', '故宫博物院故宫博物院', 'portal/20200105/c967843b6828843e3e2fdac9234cd291.jpg', '设计工程师', NULL);
-INSERT INTO `yz_portal_designer` VALUES (5, '绿绿', 10, '撒大声地', '爱上的地方水调歌头规划局', 'portal/20200105/aae8d76adf60ee0b034b866fadb09f27.jpg', '专业设计师', NULL);
-INSERT INTO `yz_portal_designer` VALUES (6, '阿毛', 20, '哦哦if过哦哦ID分工ID佛i', '佛系设计师', 'portal/20200105/d834306f1097c795d510a828a34d67fb.jpg', '家装设计师', NULL);
-INSERT INTO `yz_portal_designer` VALUES (7, '美莲', 5, '美美美美美', '美美美美美', 'portal/20200105/0cbdb2bb0f3ac6a40b2e62eb14791bc5.jpg', '最美设计师', NULL);
-INSERT INTO `yz_portal_designer` VALUES (8, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (9, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (10, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (11, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (12, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (13, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (14, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (15, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (16, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (17, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (18, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (19, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (20, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (21, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (22, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (23, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (24, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (25, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (26, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (27, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (28, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (29, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (30, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (31, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (32, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (33, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (34, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (35, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (36, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (37, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (38, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (39, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (40, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (41, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (42, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (43, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (44, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (45, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (46, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (47, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (48, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (49, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (50, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (51, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (52, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (53, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (54, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (55, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
-INSERT INTO `yz_portal_designer` VALUES (56, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL);
+INSERT INTO `yz_portal_designer` VALUES (1, 'wkkis', 14, '11111111111111111', 'hahahahhahha', 'portal/20191231/b59e341639ebaf39aaef3ed7f9d457e8.jpg', '设计总监', '1111111111111', 0);
+INSERT INTO `yz_portal_designer` VALUES (2, 'Ocean', 100, '东方明珠', '干就完了11111111111111111111111111111', 'portal/20200105/389880c38f60c3b74091f5de31e42807.jpg', '设计小天才', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (3, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (4, '花花', 10, '故宫博物院', '故宫博物院故宫博物院', 'portal/20200105/c967843b6828843e3e2fdac9234cd291.jpg', '设计工程师', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (5, '绿绿', 10, '撒大声地', '爱上的地方水调歌头规划局', 'portal/20200105/aae8d76adf60ee0b034b866fadb09f27.jpg', '专业设计师', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (6, '阿毛', 20, '哦哦if过哦哦ID分工ID佛i', '佛系设计师', 'portal/20200105/d834306f1097c795d510a828a34d67fb.jpg', '家装设计师', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (7, '美莲', 5, '美美美美美', '美美美美美', 'portal/20200105/0cbdb2bb0f3ac6a40b2e62eb14791bc5.jpg', '最美设计师', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (8, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (9, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (10, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (11, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (12, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (13, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (14, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (15, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (16, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (17, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (18, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (19, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (20, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (21, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (22, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (23, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (24, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (25, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (26, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (27, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (28, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (29, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (30, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (31, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (32, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (33, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (34, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (35, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (36, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (37, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (38, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (39, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (40, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (41, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (42, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (43, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (44, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (45, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (46, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (47, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (48, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (49, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (50, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (51, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (52, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (53, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (54, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (55, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
+INSERT INTO `yz_portal_designer` VALUES (56, 'buland', 1000, '我的小房子', '哈哈哈,呵呵呵', 'http://yiansheng.cn/upload/default/20191231/676c3642cdf4594db49ea91616332980.jpg', '设计小霸王', NULL, 0);
 
 -- ----------------------------
 -- Table structure for yz_portal_post
@@ -943,19 +948,19 @@ CREATE TABLE `yz_portal_post`  (
   `published_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '发布时间',
   `delete_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '删除时间',
   `post_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'post标题',
-  `post_keywords` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'seo keywords',
-  `post_excerpt` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'post摘要',
-  `post_source` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '转载文章的来源',
-  `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '缩略图',
-  `post_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '文章内容',
-  `post_content_filtered` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '处理过的文章内容',
-  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '扩展属性,如缩略图;格式为json',
+  `post_keywords` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'seo keywords',
+  `post_excerpt` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'post摘要',
+  `post_source` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '转载文章的来源',
+  `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '缩略图',
+  `post_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '文章内容',
+  `post_content_filtered` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '处理过的文章内容',
+  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '扩展属性,如缩略图;格式为json',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `type_status_date`(`post_type`, `post_status`, `create_time`, `id`) USING BTREE,
   INDEX `parent_id`(`parent_id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `create_time`(`create_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'portal应用 文章表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = 'portal应用 文章表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of yz_portal_post
@@ -990,7 +995,7 @@ CREATE TABLE `yz_portal_tag`  (
   `post_count` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '标签文章数',
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '标签名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'portal应用 文章标签表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = 'portal应用 文章标签表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_portal_tag_post
@@ -1013,16 +1018,31 @@ CREATE TABLE `yz_recycle_bin`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `object_id` int(11) NULL DEFAULT 0 COMMENT '删除内容 id',
   `create_time` int(10) UNSIGNED NULL DEFAULT 0 COMMENT '创建时间',
-  `table_name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '删除内容所在表名',
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '删除内容名称',
+  `table_name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT '' COMMENT '删除内容所在表名',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT '' COMMENT '删除内容名称',
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '用户id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = ' 回收站' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = ' 回收站' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_recycle_bin
 -- ----------------------------
 INSERT INTO `yz_recycle_bin` VALUES (1, 1, 1578206704, 'portal_post', 'dsdsdsdsd', 1);
+
+-- ----------------------------
+-- Table structure for yz_reservation
+-- ----------------------------
+DROP TABLE IF EXISTS `yz_reservation`;
+CREATE TABLE `yz_reservation`  (
+  `id` int(11) NOT NULL COMMENT '预约表',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户名',
+  `plot_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '小区名称',
+  `house_area` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '房子面积',
+  `user_phone` int(11) NOT NULL COMMENT '用户电话',
+  `create_time` int(11) NOT NULL COMMENT '创建时间',
+  `status` tinyint(1) NULL DEFAULT 1 COMMENT '状态 1:未读;2:已读',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_role
@@ -1036,11 +1056,11 @@ CREATE TABLE `yz_role`  (
   `update_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '更新时间',
   `list_order` float NOT NULL DEFAULT 0 COMMENT '排序',
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '角色名称',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '备注',
+  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `parent_id`(`parent_id`) USING BTREE,
   INDEX `status`(`status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '角色表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_role
@@ -1070,10 +1090,10 @@ CREATE TABLE `yz_route`  (
   `list_order` float NOT NULL DEFAULT 10000 COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT 1 COMMENT '状态;1:启用,0:不启用',
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT 'URL规则类型;1:用户自定义;2:别名添加',
-  `full_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '完整url',
-  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '实际显示的url',
+  `full_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '完整url',
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '实际显示的url',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'url路由表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = 'url路由表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_route
@@ -1093,11 +1113,7 @@ CREATE TABLE `yz_slide`  (
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '幻灯片分类',
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '分类备注',
   PRIMARY KEY (`id`) USING BTREE
-<<<<<<< HEAD
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '幻灯片表' ROW_FORMAT = Dynamic;
-=======
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '幻灯片表' ROW_FORMAT = Dynamic;
->>>>>>> 0efe042f7d2a6e435c0aeef545f3ed5d9ec26945
 
 -- ----------------------------
 -- Table structure for yz_slide_item
@@ -1108,16 +1124,16 @@ CREATE TABLE `yz_slide_item`  (
   `slide_id` int(11) NOT NULL DEFAULT 0 COMMENT '幻灯片id',
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态,1:显示;0:隐藏',
   `list_order` float NOT NULL DEFAULT 10000 COMMENT '排序',
-  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '幻灯片名称',
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '幻灯片名称',
   `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '幻灯片图片',
   `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '幻灯片链接',
-  `target` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '友情链接打开方式',
+  `target` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '友情链接打开方式',
   `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '幻灯片描述',
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '幻灯片内容',
-  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '扩展信息',
+  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '扩展信息',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `slide_id`(`slide_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '幻灯片子项表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '幻灯片子项表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_theme
@@ -1165,7 +1181,7 @@ CREATE TABLE `yz_theme_file`  (
   `config_more` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '模板更多配置,来源模板的配置文件',
   `draft_more` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '模板更多配置,用户临时保存的配置',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_theme_file
@@ -1179,7 +1195,7 @@ INSERT INTO `yz_theme_file` VALUES (6, 0, 10, 'simpleboot3', '搜索页面', 'po
 INSERT INTO `yz_theme_file` VALUES (7, 1, 0, 'simpleboot3', '模板全局配置', 'public/Config', 'public/config', '模板全局配置文件', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', NULL);
 INSERT INTO `yz_theme_file` VALUES (8, 1, 1, 'simpleboot3', '导航条', 'public/Nav', 'public/nav', '导航条模板文件', '{\"vars\":{\"company_name\":{\"title\":\"\\u516c\\u53f8\\u540d\\u79f0\",\"name\":\"company_name\",\"value\":\"ThinkCMF\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', '{\"vars\":{\"company_name\":{\"title\":\"\\u516c\\u53f8\\u540d\\u79f0\",\"name\":\"company_name\",\"value\":\"ThinkCMF\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', NULL);
 INSERT INTO `yz_theme_file` VALUES (14, 0, 5, 'yizhu', '首页', 'portal/Index/index', 'portal/index', '首页模板文件', '{\"vars\":{\"top_slide\":{\"title\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"admin\\/Slide\\/index\",\"multi\":false},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"tip\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"rule\":{\"require\":true}}},\"widgets\":{\"last_news\":{\"title\":\"\\u6700\\u65b0\\u8d44\\u8baf\",\"display\":\"1\",\"vars\":{\"last_news_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/Category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', '{\"vars\":{\"top_slide\":{\"title\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"admin\\/Slide\\/index\",\"multi\":false},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"tip\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"rule\":{\"require\":true}}},\"widgets\":{\"last_news\":{\"title\":\"\\u6700\\u65b0\\u8d44\\u8baf\",\"display\":\"1\",\"vars\":{\"last_news_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/Category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', NULL);
-INSERT INTO `yz_theme_file` VALUES (15, 1, 1, 'yizhu', '头部', 'public/header', 'public/header', '头部模板文件', '{\"vars\":{\"title_name\":{\"title\":\"\\u7f51\\u7ad9\\u540d\\u79f0\",\"value\":\"\\u4e42\\u7b51\\u522b\\u5885\\u88c5\\u4fee\\u8bbe\\u8ba1\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u51fa\\u5165\\u7f51\\u7ad9\\u540d\\u79f0\",\"rule\":{\"require\":true}},\"web_icon\":{\"title\":\"\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"value\":\"default\\/20200105\\/b7329147f3b3976dcccb7ef43b4d3282.png\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_Logo\":{\"title\":\"\\u7f51\\u7ad9Logo\",\"value\":\"default\\/20200105\\/b7329147f3b3976dcccb7ef43b4d3282.png\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9LOGO\",\"rule\":{\"require\":true}},\"web_header_slogan_title\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\",\"value\":\"\\u4e13\\u4e00\\u5b9a\\u5236\\u522b\\u5885\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\",\"rule\":{\"require\":true}},\"web_header_slogan_content\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\\u5185\\u5bb9\",\"value\":\"\\u7cbe\\u5fc3\\u6253\\u9020\\u9ad8\\u7aef\\u522b\\u5885\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\\u5185\\u5bb9\",\"rule\":{\"require\":true}},\"web_header_telephone_image\":{\"title\":\"\\u54a8\\u8be2\\u70ed\\u7ebf\\u56fe\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u54a8\\u8be2\\u70ed\\u7ebf\\u4e0a\\u65b9\\u7684\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_header_telephone\":{\"title\":\"\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"value\":\"400-400-8888\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_header_after_sale_telephone\":{\"title\":\"\\u552e\\u540e\\u7535\\u8bdd\",\"value\":\"123456\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u552e\\u540e\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_QR_code\":{\"title\":\"\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"value\":\"default\\/20200105\\/6d3e647a3d5c0c30faa83adcce582438.jpg\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"rule\":{\"require\":true}}}}', '{\"vars\":{\"title_name\":{\"title\":\"\\u7f51\\u7ad9\\u540d\\u79f0\",\"value\":\"\\u4e42\\u7b51\\u522b\\u5885\\u88c5\\u4fee\\u8bbe\\u8ba1\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u51fa\\u5165\\u7f51\\u7ad9\\u540d\\u79f0\",\"rule\":{\"require\":true}},\"web_icon\":{\"title\":\"\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_Logo\":{\"title\":\"\\u7f51\\u7ad9Logo\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9LOGO\",\"rule\":{\"require\":true}},\"web_header_slogan_title\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\",\"rule\":{\"require\":true}},\"web_header_slogan_content\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\\u5185\\u5bb9\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\\u5185\\u5bb9\",\"rule\":{\"require\":true}},\"web_header_telephone_image\":{\"title\":\"\\u54a8\\u8be2\\u70ed\\u7ebf\\u56fe\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u54a8\\u8be2\\u70ed\\u7ebf\\u4e0a\\u65b9\\u7684\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_header_telephone\":{\"title\":\"\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_header_after_sale_telephone\":{\"title\":\"\\u552e\\u540e\\u7535\\u8bdd\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u552e\\u540e\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_QR_code\":{\"title\":\"\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"rule\":{\"require\":true}}}}', NULL);
+INSERT INTO `yz_theme_file` VALUES (16, 1, 1, 'yizhu', '头部', 'public/header', 'public/header', '头部模板文件', '{\"vars\":{\"title_name\":{\"title\":\"\\u7f51\\u7ad9\\u540d\\u79f0\",\"value\":\"\\u4e42\\u7b51\\u522b\\u5885\\u88c5\\u4fee\\u8bbe\\u8ba1\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u51fa\\u5165\\u7f51\\u7ad9\\u540d\\u79f0\",\"rule\":{\"require\":true}},\"web_icon\":{\"title\":\"\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_Logo\":{\"title\":\"\\u7f51\\u7ad9Logo\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9LOGO\",\"rule\":{\"require\":true}},\"web_header_slogan_title\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\",\"rule\":{\"require\":true}},\"web_header_slogan_content\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\\u5185\\u5bb9\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\\u5185\\u5bb9\",\"rule\":{\"require\":true}},\"web_header_telephone_image\":{\"title\":\"\\u54a8\\u8be2\\u70ed\\u7ebf\\u56fe\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u54a8\\u8be2\\u70ed\\u7ebf\\u4e0a\\u65b9\\u7684\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_header_telephone\":{\"title\":\"\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_header_after_sale_telephone\":{\"title\":\"\\u552e\\u540e\\u7535\\u8bdd\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u552e\\u540e\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_QR_code\":{\"title\":\"\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"rule\":{\"require\":true}}}}', '{\"vars\":{\"title_name\":{\"title\":\"\\u7f51\\u7ad9\\u540d\\u79f0\",\"value\":\"\\u4e42\\u7b51\\u522b\\u5885\\u88c5\\u4fee\\u8bbe\\u8ba1\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u51fa\\u5165\\u7f51\\u7ad9\\u540d\\u79f0\",\"rule\":{\"require\":true}},\"web_icon\":{\"title\":\"\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9\\u5c0f\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_Logo\":{\"title\":\"\\u7f51\\u7ad9Logo\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u7f51\\u7ad9LOGO\",\"rule\":{\"require\":true}},\"web_header_slogan_title\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\",\"rule\":{\"require\":true}},\"web_header_slogan_content\":{\"title\":\"\\u7f51\\u7ad9\\u5934\\u90e8\\u6807\\u8bed\\u5185\\u5bb9\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u5934\\u6807\\u8bed\\u5185\\u5bb9\",\"rule\":{\"require\":true}},\"web_header_telephone_image\":{\"title\":\"\\u54a8\\u8be2\\u70ed\\u7ebf\\u56fe\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u54a8\\u8be2\\u70ed\\u7ebf\\u4e0a\\u65b9\\u7684\\u56fe\\u6807\",\"rule\":{\"require\":true}},\"web_header_telephone\":{\"title\":\"\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u7f51\\u7ad9\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_header_after_sale_telephone\":{\"title\":\"\\u552e\\u540e\\u7535\\u8bdd\",\"value\":\"\",\"type\":\"text\",\"tip\":\"\\u8bf7\\u8f93\\u5165\\u552e\\u540e\\u54a8\\u8be2\\u7535\\u8bdd\",\"rule\":{\"require\":true}},\"web_QR_code\":{\"title\":\"\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"value\":\"\",\"type\":\"image\",\"tip\":\"\\u8bf7\\u9009\\u62e9\\u5fae\\u4fe1\\u4e8c\\u7ef4\\u7801\",\"rule\":{\"require\":true}}}}', NULL);
 
 -- ----------------------------
 -- Table structure for yz_third_party_user
@@ -1193,16 +1209,16 @@ CREATE TABLE `yz_third_party_user`  (
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '绑定时间',
   `login_times` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '登录次数',
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态;1:正常;0:禁用',
-  `nickname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户昵称',
-  `third_party` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '第三方唯一码',
-  `app_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '第三方应用 id',
-  `last_login_ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '最后登录ip',
-  `access_token` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '第三方授权码',
-  `openid` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '第三方用户id',
-  `union_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '第三方用户多个产品中的惟一 id,(如:微信平台)',
-  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '扩展信息',
+  `nickname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户昵称',
+  `third_party` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '第三方唯一码',
+  `app_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '第三方应用 id',
+  `last_login_ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '最后登录ip',
+  `access_token` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '第三方授权码',
+  `openid` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '第三方用户id',
+  `union_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '第三方用户多个产品中的惟一 id,(如:微信平台)',
+  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '扩展信息',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '第三方用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '第三方用户表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_user
@@ -1220,20 +1236,20 @@ CREATE TABLE `yz_user`  (
   `create_time` int(11) NOT NULL DEFAULT 0 COMMENT '注册时间',
   `user_status` tinyint(3) UNSIGNED NOT NULL DEFAULT 1 COMMENT '用户状态;0:禁用,1:正常,2:未验证',
   `user_login` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名',
-  `user_pass` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '登录密码;cmf_password加密',
+  `user_pass` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '登录密码;cmf_password加密',
   `user_nickname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户昵称',
-  `user_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户登录邮箱',
-  `user_url` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户个人网址',
-  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户头像',
-  `signature` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '个性签名',
-  `last_login_ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '最后登录ip',
-  `user_activation_key` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '激活码',
-  `mobile` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '中国手机不带国家代码，国际手机号格式为：国家代码-手机号',
-  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '扩展属性',
+  `user_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户登录邮箱',
+  `user_url` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户个人网址',
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户头像',
+  `signature` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '个性签名',
+  `last_login_ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '最后登录ip',
+  `user_activation_key` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '激活码',
+  `mobile` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '中国手机不带国家代码，国际手机号格式为：国家代码-手机号',
+  `more` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '扩展属性',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_login`(`user_login`) USING BTREE,
   INDEX `user_nickname`(`user_nickname`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_user
@@ -1251,12 +1267,12 @@ CREATE TABLE `yz_user_action`  (
   `reward_number` int(11) NOT NULL DEFAULT 0 COMMENT '奖励次数',
   `cycle_type` tinyint(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '周期类型;0:不限;1:按天;2:按小时;3:永久',
   `cycle_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '周期时间值',
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户操作名称',
-  `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户操作名称',
-  `app` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '操作所在应用名或插件名等',
-  `url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '执行操作的url',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户操作名称',
+  `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户操作名称',
+  `app` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '操作所在应用名或插件名等',
+  `url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '执行操作的url',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户操作表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户操作表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_user_action
@@ -1272,13 +1288,13 @@ CREATE TABLE `yz_user_action_log`  (
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '用户id',
   `count` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '访问次数',
   `last_visit_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '最后访问时间',
-  `object` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '访问对象的id,格式:不带前缀的表名+id;如posts1表示xx_posts表里id为1的记录',
-  `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '操作名称;格式:应用名+控制器+操作名,也可自己定义格式只要不发生冲突且惟一;',
-  `ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户ip',
+  `object` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '访问对象的id,格式:不带前缀的表名+id;如posts1表示xx_posts表里id为1的记录',
+  `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '操作名称;格式:应用名+控制器+操作名,也可自己定义格式只要不发生冲突且惟一;',
+  `ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户ip',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_object_action`(`user_id`, `object`, `action`) USING BTREE,
   INDEX `user_object_action_ip`(`user_id`, `object`, `action`, `ip`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '访问记录表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '访问记录表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_user_balance_log
@@ -1290,10 +1306,10 @@ CREATE TABLE `yz_user_balance_log`  (
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '创建时间',
   `change` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '更改余额',
   `balance` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '更改后余额',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '描述',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '备注',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '描述',
+  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户余额变更日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户余额变更日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_user_favorite
@@ -1302,16 +1318,16 @@ DROP TABLE IF EXISTS `yz_user_favorite`;
 CREATE TABLE `yz_user_favorite`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '用户 id',
-  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '收藏内容的标题',
-  `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '缩略图',
-  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收藏内容的原文地址，JSON格式',
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '收藏内容的描述',
-  `table_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '收藏实体以前所在表,不带前缀',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '收藏内容的标题',
+  `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '缩略图',
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '收藏内容的原文地址，JSON格式',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '收藏内容的描述',
+  `table_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '收藏实体以前所在表,不带前缀',
   `object_id` int(10) UNSIGNED NULL DEFAULT 0 COMMENT '收藏内容原来的主键id',
   `create_time` int(10) UNSIGNED NULL DEFAULT 0 COMMENT '收藏时间',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `uid`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户收藏表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户收藏表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_user_like
@@ -1322,14 +1338,14 @@ CREATE TABLE `yz_user_like`  (
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '用户 id',
   `object_id` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '内容原来的主键id',
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '创建时间',
-  `table_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '内容以前所在表,不带前缀',
-  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '内容的原文地址，不带域名',
-  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '内容的标题',
-  `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '缩略图',
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '内容的描述',
+  `table_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '内容以前所在表,不带前缀',
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '内容的原文地址，不带域名',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '内容的标题',
+  `thumbnail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '缩略图',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '内容的描述',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `uid`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户点赞表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户点赞表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_user_login_attempt
@@ -1340,10 +1356,10 @@ CREATE TABLE `yz_user_login_attempt`  (
   `login_attempts` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '尝试次数',
   `attempt_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '尝试登录时间',
   `locked_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '锁定时间',
-  `ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户 ip',
-  `account` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户账号,手机号,邮箱或用户名',
+  `ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户 ip',
+  `account` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户账号,手机号,邮箱或用户名',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户登录尝试表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户登录尝试表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for yz_user_score_log
@@ -1353,11 +1369,11 @@ CREATE TABLE `yz_user_score_log`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL DEFAULT 0 COMMENT '用户 id',
   `create_time` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
-  `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户操作名称',
+  `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户操作名称',
   `score` int(11) NOT NULL DEFAULT 0 COMMENT '更改积分，可以为负',
   `coin` int(11) NOT NULL DEFAULT 0 COMMENT '更改金币，可以为负',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户操作积分等奖励日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户操作积分等奖励日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for yz_user_token
@@ -1368,10 +1384,10 @@ CREATE TABLE `yz_user_token`  (
   `user_id` bigint(20) NOT NULL DEFAULT 0 COMMENT '用户id',
   `expire_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT ' 过期时间',
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '创建时间',
-  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'token',
-  `device_type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '设备类型;mobile,android,iphone,ipad,web,pc,mac,wxapp',
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'token',
+  `device_type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '设备类型;mobile,android,iphone,ipad,web,pc,mac,wxapp',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户客户端登录 token 表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户客户端登录 token 表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of yz_user_token
@@ -1390,6 +1406,6 @@ CREATE TABLE `yz_verification_code`  (
   `code` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '最后发送成功的验证码',
   `account` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '手机号或者邮箱',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '手机邮箱数字验证码表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '手机邮箱数字验证码表' ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
