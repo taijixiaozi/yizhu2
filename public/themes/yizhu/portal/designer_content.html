@@ -149,12 +149,12 @@
                   <div class="item ">
                       <div class="bgbox">
                           <p class="img">
-                              <a href="{:cmf_url('portal/case/content',['id'=>$case['id']]);}">
+                              <a href="{:cmf_url('portal/case/content',['id'=>$case['id']])}">
                                   <img src="{$case.thumbnail|cmf_get_image_url}" width="280" height="200" alt="{$case.name|default=''}">
                               </a>
                           </p>
                           <p class="txt">{$case.name|default=''}</p>
-                          <p class="btnbox onebtnbox"> <a href="{:cmf_url('portal/case/content',['id'=>$case['id']]);}">查看详情</a> </p>
+                          <p class="btnbox onebtnbox"> <a href="{:cmf_url('portal/case/content',['id'=>$case['id']])}">查看详情</a> </p>
                       </div>
                   </div>
               </foreach>

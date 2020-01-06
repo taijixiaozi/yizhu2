@@ -35,7 +35,8 @@ class DesignersController extends HomeBaseController{
 
         //设计师相关案例
         $designerCase = new  PortalCaseModel();
-        $caseInfo = $designerCase->getDesignerCase($id);
+
+        $caseInfo = $designerCase->getInterrelatedCase($id);
 
         $this->assign('designerInfo', $designerInfo);
         $this->assign('caseInfo', $caseInfo);
