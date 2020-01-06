@@ -10,12 +10,15 @@ class ReservationController extends HomeBaseController{
     {
 
         if($request->isAjax()){
-            $name=input('name');
-            $name=input('plot_name');
-            $name=input('house_area');
-            $name=input('user_phone');
-            Db::table('yz_reservation')->insert($name);
-       }
-        return 111;
+            $data = [
+                'name' =>  trim(htmlspecialchars(input('name'))),
+                'plot_name' => trim(htmlspecialchars(input('plot_name'))),
+                'house_area' => trim(htmlspecialchars(input('house_area'))),
+                'user_phone' => trim(htmlspecialchars(input('user_phone'))),
+            ];
+
+       } else {
+            return false;
+        }
     }
 }
