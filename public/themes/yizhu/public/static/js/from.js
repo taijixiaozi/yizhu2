@@ -22,7 +22,7 @@ function newcheckform() {
     }
 
     $.ajax({
-      type: 'post',
+        type: 'post',
         url : 'http://yizhu.api/portal/reservation/reservation' ,
         dataType : 'json' ,
         data : {
@@ -33,9 +33,9 @@ function newcheckform() {
         } ,
         success : function(data) {
         $('#name').val('');
-        $('#tel').val('');
-        $('#mj').val('');
-        $('#xq').val('');
+        $('#plot_name').val('');
+        $('#house_area').val('');
+        $('#user_phone').val('');
 
         alert("提交成功，我们将尽快与您联系");
 
