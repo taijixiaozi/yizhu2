@@ -13,5 +13,11 @@ use think\Model;
 
 class PortalDesignerModel extends Model
 {
+    public static function findDesigner($id){
+        return self::where(['id'=>$id])->find()->toArray();
+    }
 
+    public static function allDesigner(){
+        return self::order('id', 'desc')->paginate(1);
+    }
 }

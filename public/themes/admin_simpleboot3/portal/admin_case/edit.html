@@ -30,99 +30,95 @@
 <div class="wrap js-check-wrap">
     <ul class="nav nav-tabs">
         <li><a href="{:url('AdminCase/index')}">案例管理</a></li>
-        <li class="active"><a href="{:url('AdminCase/add')}">添加案例</a></li>
+        <li><a href="{:url('AdminCase/add')}">添加案例</a></li>
+        <li class="active"><a href="{:url('AdminCase/edit')}">编辑案例</a></li>
     </ul>
-    <form action="{:url('AdminCase/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+    <form action="{:url('AdminCase/edit')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <input id="post-id" type="hidden" name="post[id]" value="{$case.id}">
         <div class="row">
             <div class="col-md-9">
                 <table class="table table-bordered">
                     <tr>
-                        <th width="100">分类<span class="form-required">*</span></th>
+                        <th width="100">设计师<span class="form-required">*</span></th>
                         <td>
-                            <input class="form-control" type="text" style="width:400px;" required value=""
+                            <input class="form-control" type="text" style="width:400px;" required value="{$case.did.name}"
                                    placeholder="请选择设计师" onclick="doSelectDesigner();" id="js-categories-name-input"
                                    readonly/>
-                            <input class="form-control" type="hidden" value="" name="post[categories]"
+                            <input class="form-control" type="hidden" value="{$case.did.id}" name="post[did]"
                                    id="js-categories-id-input"/>
                         </td>
                     </tr>
                     <tr>
-                        <th>标题<span class="form-required">*</span></th>
+                        <th>案例名称<span class="form-required">*</span></th>
                         <td>
-                            <input class="form-control" type="text" name="post[post_title]"
-                                   id="title" required value="" placeholder="请输入标题"/>
+                            <input class="form-control" type="text" name="post[name]"
+                                   id="title" required value="{$case.name}" placeholder="请输入案例名称"/>
+                        </td>
+                    </tr>
+                    <!--案例标签选择 注意这个是多标签选择-->
+                    <tr>
+                        <th width="100">案例标签<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" required value="{$case.tags}"
+                                   placeholder="请选择案例标签" onclick="doSelectCaseTags();" id="js-case-name-input"
+                                   readonly/>
+                            <input class="form-control" type="hidden" value="{$case.tags}" name="post[tags]"
+                                   id="js-case-id-input"/>
                         </td>
                     </tr>
                     <tr>
-                        <th>关键词</th>
+                        <th>案例摘要</th>
                         <td>
-                            <input class="form-control" type="text" name="post[post_keywords]" id="keywords" value=""
-                                   placeholder="请输入关键字">
-                            <p class="help-block">多关键词之间用英文逗号隔开</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>文章来源</th>
-                        <td><input class="form-control" type="text" name="post[post_source]" id="source" value=""
-                                   placeholder="请输入文章来源"></td>
-                    </tr>
-                    <tr>
-                        <th>摘要</th>
-                        <td>
-                            <textarea class="form-control" name="post[post_excerpt]" style="height: 50px;"
-                                      placeholder="请填写摘要"></textarea>
+                            <textarea class="form-control" name="post[case_desc]" style="height: 50px;"
+                                      placeholder="请填写案例摘要">{$case.case_desc}</textarea>
                         </td>
                     </tr>
                     <tr>
                         <th>内容</th>
                         <td>
-                            <script type="text/plain" id="content" name="post[post_content]"></script>
+                            <script type="text/plain" id="content" name="post[case_content]">{$case.case_content}</script>
                         </td>
                     </tr>
                     <tr>
                         <th>相册</th>
                         <td>
-                            <ul id="photos" class="pic-list list-unstyled form-inline"></ul>
+                            <ul id="photos" class="pic-list list-unstyled form-inline">
+                                <notempty name="case.more.photos">
+                                    <foreach name="case.more.photos" item="vo">
+                                        <php>$img_url=cmf_get_image_preview_url($vo['url']);</php>
+                                        <li id="saved-image{$key}">
+                                            <input id="photo-{$key}" type="hidden" name="photo_urls[]"
+                                                   value="{$vo.url}">
+                                            <input class="form-control" id="photo-{$key}-name" type="text"
+                                                   name="photo_names[]"
+                                                   value="{$vo.name|default=''}" style="width: 200px;" title="图片名称">
+                                            <img id="photo-{$key}-preview"
+                                                 src="{:cmf_get_image_preview_url($vo['url'])}"
+                                                 style="height:36px;width: 36px;"
+                                                 onclick="parent.imagePreviewDialog(this.src);">
+                                            <a href="javascript:uploadOneImage('图片上传','#photo-{$key}');">替换</a>
+                                            <a href="javascript:(function(){$('#saved-image{$key}').remove();})();">移除</a>
+                                        </li>
+                                    </foreach>
+                                </notempty>
+                            </ul>
                             <a href="javascript:uploadMultiImage('图片上传','#photos','photos-item-tpl');"
                                class="btn btn-default btn-sm">选择图片</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>附件</th>
-                        <td>
-                            <ul id="files" class="pic-list list-unstyled form-inline">
-                            </ul>
-                            <a href="javascript:uploadMultiFile('附件上传','#files','files-item-tpl','file');"
-                               class="btn btn-sm btn-default">选择文件</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>音频</th>
-                        <td class="form-inline">
-                            <input id="file-audio" class="form-control" type="text" name="post[more][audio]"
-                                   value="{$post.more.audio|default=''}" placeholder="请上传音频文件" style="width: 200px;">
-                            <notempty name="post.more.audio">
-                                <a id="file-audio-preview" href="{:cmf_get_file_download_url($post.more.audio)}"
-                                   target="_blank">下载</a>
-                            </notempty>
-
-                            <a href="javascript:uploadOne('文件上传','#file-audio','audio');">上传</a>
                         </td>
                     </tr>
                     <tr>
                         <th>视频</th>
                         <td class="form-inline">
                             <input id="file-video" class="form-control" type="text" name="post[more][video]"
-                                   value="{$post.more.video|default=''}" placeholder="请上传视频文件" style="width: 200px;">
-                            <notempty name="post.more.video">
-                                <a id="file-video-preview" href="{:cmf_get_file_download_url($post.more.video)}"
+                                   value="{$case.more.video|default=''}" placeholder="请上传视频文件" style="width: 200px;">
+                            <notempty name="case.more.video">
+                                <a id="file-video-preview" href="{:cmf_get_file_download_url($case.more.video)}"
                                    target="_blank">下载</a>
                             </notempty>
                             <a href="javascript:uploadOne('文件上传','#file-video','video');">上传</a>
                         </td>
                     </tr>
                 </table>
-                <hook name="portal_admin_article_edit_view_main"/>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
@@ -140,9 +136,15 @@
                             <div style="text-align: center;">
                                 <input type="hidden" name="post[more][thumbnail]" id="thumbnail" value="">
                                 <a href="javascript:uploadOneImage('图片上传','#thumbnail');">
-                                    <img src="__TMPL__/public/assets/images/default-thumbnail.png"
-                                         id="thumbnail-preview"
-                                         width="135" style="cursor: pointer"/>
+                                    <if condition="empty($case.more.thumbnail)">
+                                        <img src="__TMPL__/public/assets/images/default-thumbnail.png"
+                                             id="thumbnail-preview"
+                                             width="135" style="cursor: pointer"/>
+                                        <else/>
+                                        <img src="{:cmf_get_image_preview_url($case.more.thumbnail)}"
+                                             id="thumbnail-preview"
+                                             width="135" style="cursor: pointer"/>
+                                    </if>
                                 </a>
                                 <input type="button" class="btn btn-sm btn-cancel-thumbnail" value="取消图片">
                             </div>
@@ -153,8 +155,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input class="form-control js-bootstrap-datetime" type="text" name="post[published_time]"
-                                   value="{:date('Y-m-d H:i:s',time())}">
+                            <input class="form-control js-bootstrap-datetime" type="text" name="post[create_time]"
+                                   value="{:date('Y-m-d H:i',$case['create_time'])}">
                         </td>
                     </tr>
 
@@ -205,6 +207,49 @@
                 }
                 $('#js-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
                 $('#js-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                //console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果设定了yes回调，需进行手工关闭
+            }
+        });
+    }
+
+    function doSelectCaseTags() {
+        var selectedCategoriesId = $('#js-categories-id-input').val();
+        openIframeLayer("{:url('AdminDesigner/select')}?ids=" + selectedCategoriesId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                //do something
+
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+                $('#js-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
+                $('#js-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                //console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果设定了yes回调，需进行手工关闭
+            }
+        });
+    }
+
+    function doSelectCaseTags(){
+        var selectedCasetags = $('#js-case-id-input').val();
+        openIframeLayer("{:url('AdminCasetags/selectalltags')}?ids=" + selectedCasetags, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                //do something
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择案例标签');
+                    return;
+                }
+                $('#js-case-id-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                $('#js-case-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
                 //console.log(layer.getFrameIndex(index));
                 layer.close(index); //如果设定了yes回调，需进行手工关闭
             }

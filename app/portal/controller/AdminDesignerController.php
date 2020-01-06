@@ -63,18 +63,15 @@ class AdminDesignerController extends AdminBaseController
     /**
      *
      */
-    public function edit($id)
+    public function edit($id = '')
     {
         //设计师的model
         $portalDesignerModel = new PortalDesignerModel();
-        //查出设计师的数据对应id的数据
-        $data = $portalDesignerModel->where(["id"=>$id])->find();
-
         //如果是post的话那么就开始进行更新操作
         if($this->request->isPost()) {
             $arrData = $this->request->param();
             $portalDesignerModel = new PortalDesignerModel();
-            $res = $portalDesignerModel->isUpdate(false)->allowField(true)->save($arrData['post']);
+            $res = $portalDesignerModel->isUpdate(true)->allowField(true)->save($arrData['post']);
             //判断是否存入成功
             if(!$res){
                 $this->success(lang("ADD_FAILED"));
@@ -82,6 +79,8 @@ class AdminDesignerController extends AdminBaseController
                 $this->success(lang("ADD_SUCCESS"));
             }
         }
+        //查出设计师的数据对应id的数据
+        $data = $portalDesignerModel->where(["id"=>$id])->find();
         //委派变量
         $this->assign("designer",$data);
         return $this->fetch();

@@ -41,8 +41,8 @@
                     <td>{$vo.id}</td>
                     <td>{$vo.name}</td>
                     <td>
-                        <a href="{:url('AdminCasetags/edit',['id'=>$vo.id])}">编辑</a>
-                        <a class="js-ajax-delete" href="{:url('AdminCasetags/delete',['id'=>$vo.id])}">删除</a>
+                        <a href="{:url('AdminCasetags/mainedit',['id'=>$vo.id])}">编辑</a>
+                        <a class="js-ajax-delete" href="{:url('AdminCasetags/maindelete',['id'=>$vo.id])}">删除</a>
                     </td>
                 </tr>
             </foreach>

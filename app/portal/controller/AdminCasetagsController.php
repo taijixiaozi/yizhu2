@@ -50,6 +50,30 @@ class AdminCasetagsController extends AdminBaseController
     }
 
     /**
+     * 添加主风格
+     */
+    public function mainedit($id = '')
+    {
+        //主风格的model
+        $portalCasetagsModel = new PortalCasetagsModel();
+        //如果是post的话那么就开始进行更新操作
+        if($this->request->isPost()) {
+            $arrData = $this->request->param();
+            $res = $portalCasetagsModel->isUpdate(true)->allowField(true)->save($arrData['post']);
+            //判断是否存入成功
+            if(!$res){
+                $this->success(lang("ADD_FAILED"));
+            }else{
+                $this->success(lang("ADD_SUCCESS"));
+            }
+        }
+        //查出主风格对应id的数据
+        $data = $portalCasetagsModel->where(["id"=>$id])->find();
+        //委派变量
+        $this->assign("maintag",$data);
+        return $this->fetch();
+    }
+    /**
      * 子风格列表
      * @return mixed
      * @throws \think\exception\DbException
