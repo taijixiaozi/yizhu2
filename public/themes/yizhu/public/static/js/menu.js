@@ -35,9 +35,8 @@ $("#leftBackTop").click(function() {
     link.href = link.href.replace(catId, 'tid=3');
   })
 
-  console.log(start);
 
-  console.log(end);
+
 
   //security iframe
 

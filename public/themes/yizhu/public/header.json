@@ -1,0 +1,92 @@
+{
+  "name": "头部",
+  "action": "public/header",
+  "description": "头部模板文件",
+  "order": 1.0,
+  "is_public": 1,
+  "more": {
+    "vars": {
+      "title_name": {
+        "title": "网站名称",
+        "value": "乂筑别墅装修设计",
+        "type": "text",
+        "tip": "请出入网站名称",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_icon": {
+        "title": "网站小图标",
+        "value": "",
+        "type": "image",
+        "tip": "请选择网站小图标",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_Logo": {
+        "title": "网站Logo",
+        "value": "",
+        "type": "image",
+        "tip": "请选择网站LOGO",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_header_slogan_title": {
+        "title": "网站头部标语",
+        "value": "",
+        "type": "text",
+        "tip": "请输入网站头标语",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_header_slogan_content": {
+        "title": "网站头部标语内容",
+        "value": "",
+        "type": "text",
+        "tip": "请输入网站头标语内容",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_header_telephone_image": {
+        "title": "咨询热线图",
+        "value": "",
+        "type": "image",
+        "tip": "请选择咨询热线上方的图标",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_header_telephone": {
+        "title": "网站咨询电话",
+        "value": "",
+        "type": "text",
+        "tip": "请输入网站咨询电话",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_header_after_sale_telephone": {
+        "title": "售后电话",
+        "value": "",
+        "type": "text",
+        "tip": "请输入售后咨询电话",
+        "rule": {
+          "require": true
+        }
+      },
+      "web_QR_code": {
+        "title": "微信二维码",
+        "value": "",
+        "type": "image",
+        "tip": "请选择微信二维码",
+        "rule": {
+          "require": true
+        }
+      }
+    }
+  }
+}

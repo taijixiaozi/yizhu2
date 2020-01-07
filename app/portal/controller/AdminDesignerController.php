@@ -67,6 +67,9 @@ class AdminDesignerController extends AdminBaseController
     {
         //设计师的model
         $portalDesignerModel = new PortalDesignerModel();
+        //查出设计师的数据对应id的数据
+        $data = $portalDesignerModel->where(["id"=>$id])->find();
+
         //如果是post的话那么就开始进行更新操作
         if($this->request->isPost()) {
             $arrData = $this->request->param();
@@ -79,8 +82,6 @@ class AdminDesignerController extends AdminBaseController
                 $this->success(lang("ADD_SUCCESS"));
             }
         }
-        //查出设计师的数据对应id的数据
-        $data = $portalDesignerModel->where(["id"=>$id])->find();
         //委派变量
         $this->assign("designer",$data);
         return $this->fetch();

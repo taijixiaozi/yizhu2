@@ -2,8 +2,9 @@
 
 <html>
 <head>
-<taglib name="app\portal\taglib\Portal"/>
-<title>案例内页</title>
+    <taglib name="app\portal\taglib\Portal"/>
+    <title>{$theme_vars.title_name|default='乂筑别墅设计'}</title>
+    <link rel="icon" href="{$theme_vars.web_icon|cmf_get_image_url}">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,6 +32,7 @@
 
 </head>
 <body  style="position:relative">
+here it is
 <div id="index_overflow">
   <include file="public@header"/>
 
@@ -48,15 +50,18 @@
 
           <div class="swiper-container gallery-top">
 
-
             <!-- Additional required wrapper -->
 
             <div class="swiper-wrapper" style="width: 4300px; height: 580px;">
+
               <!-- Slides -->
               {/*这里遍历图片*/}
+
+            <volist name="casePhotos.photos" id="vo">
               <div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 860px; height: 580px;">
-                <img src="__TMPL__/public/static/picture/1-1g006102z2.jpg">
+                <img src="{$vo.url|cmf_get_image_url}">
               </div>
+            </volist>
             </div>
             {/*这里遍历图片*/}
             <!-- If we need navigation buttons -->
@@ -75,11 +80,13 @@
             <div class="gallery-bottom-box">
               <div class="swiper-container gallery-bottom">
                 <div class="swiper-wrapper swiper-wrapper-bottom" style="padding-left: 312.5px; padding-right: 312.5px; width: 625px; height: 80px;">
-
+                  <!-- Slides -->
                   {/*这里遍历图片*/}
+                   <volist name="casePhotos.photos" id="vo">
                   <div class="swiper-slide swiper-thumb swiper-slide-visible" style="width: 125px; height: 80px; opacity: 1;">
-                    <img src="__TMPL__/public/static/picture/1-1g006102z2.jpg">
+                    <img src="{$vo.url|cmf_get_image_url}">
                   </div>
+                     </volist>
                   {/*这里遍历图片*/}
                  </div>
               </div>
@@ -92,19 +99,19 @@
               <tbody>
                 <tr>
                   <td>案例风格</td>
-                  <td style="width:285px"><div>北欧</div></td>
+                  <td style="width:285px"><div>{$caseInfo['case_style']}</div></td>
                   <td>案例户型</td>
-                  <td style="width:150px"><div>普通住宅</div></td>
+                  <td style="width:150px"><div>{$caseInfo['case_type']}</div></td>
                   <td>案例面积</td>
-                  <td style="width:150px"><div>140</div></td>
+                  <td style="width:150px"><div>{$caseInfo['case_area']}</div></td>
                 </tr>
                 <tr>
                   <td>楼盘名称</td>
-                  <td style="width:285px"><div>御园</div></td>
+                  <td style="width:285px"><div>{$caseInfo['property_name']}</div></td>
                   <td>主设计师</td>
-                  <td style="width:150px"><div>陈望远</div></td>
+                  <td style="width:150px"><div>{$caseInfo['did']['name']}</div></td>
                   <td>案例造价</td>
-                  <td style="width:150px"><div>15万</div></td>
+                  <td style="width:150px"><div>{$caseInfo['case_cost']}</div></td>
                 </tr>
               </tbody>
             </table>
@@ -114,37 +121,18 @@
           </div>
         </div>
         <div class="case-inner-right" deep="4">
-          <div class="case-inner-left-1"> <img src="static/picture/lbz.png"> </div>
+          <div class="case-inner-left-1"> <img src="__TMPL__/public/static/picture/lbz.png"> </div>
           <div class="case-inner-left-title">本案例设计师简介</div>
-          <div class="case-inner-left-2"> <img src="static/picture/1-1g00q91326100.jpg">
-            <h4>姓名:陈望远</h4>
-            <p>职位:原创艺墅设计师</p>
-            <div class="case-inner-2-btn-box"> <a class="anli" href="/designer/188.html">更多案例</a> <a class="sheji reservationDesign" href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456789&amp;site=qq&amp;menu=yes" designerid="1484">预约设计</a> </div> </div>
-          <div class="case-inner-left-3"> <img class="case-inner-left-3-add" src="static/picture/yuyue.png">
-            <form action="" method="post" id="reservationDesignFrom">
-              <input name="orignURL" type="hidden">
-              <div class="signForm">
-  <div>
-    <label>您的称呼</label>
-    <input type="text" name="name" id="name" placeholder="先生/女士">
-  </div>
-  <div>
-    <label>小区名称</label>
-    <input type="text" name="apartment" id="xq" placeholder="请输入小区名称">
-  </div>
-  <div>
-    <label>房屋面积</label>
-    <input type="text" name="area" id="mj" placeholder="1室1厅1卫 65㎡">
-  </div>
-  <div>
-    <label>您的电话</label>
-    <input type="text" name="phone"  id="tel"placeholder="请输入手机号码">
-  </div>
-  <input type="hidden" name="serviceType" value="APPOINTMENT_DESIGNER">
-  <a onClick="newcheckform()"  class="confirmation ">确认报名</a> </div>
-<script src="static/js/from.js"></script>
-            </form>
+          <div class="case-inner-left-2"> <img src="{$designerInfo['thumbnail']|cmf_get_image_url}">
+            <h4>姓名:{$designerInfo['name']|default=''}</h4>
+            <p>职位:{$designerInfo['name']|default=''}</p>
+            <div class="case-inner-2-btn-box">
+              <a class="anli" href="{:cmf_url('portal/designers/content',['id'=>$designerInfo['id']])}">更多案例</a>
+              <a class="sheji reservationDesign" href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456789&amp;site=qq&amp;menu=yes" designerid="1484">预约设计</a>
+            </div>
           </div>
+            {/*预约设计*/}
+           <include file="public@reservation"/>
         </div>
         <div class="clears"></div>
       </div>
@@ -156,17 +144,17 @@
             </div>
             <div style="clear: both"></div>
           </div>
-          <div class="guess-favorite-content"> <div class="guess-favorite-modal"> <a href="/case/01/269.html"> <img src="static/picture/1-1g00q5554c03.jpg"> </a>
-              <div style="text-align: center;background: #f0f0f0;padding:10px 5px;font-size:12px; ">金贸大厦</div>
-            </div>
-<div class="guess-favorite-modal"> <a href="/case/01/272.html"> <img src="static/picture/1-1g00q54g4n3.jpg"> </a>
-              <div style="text-align: center;background: #f0f0f0;padding:10px 5px;font-size:12px; ">自建房 120平</div>
-            </div>
-<div class="guess-favorite-modal"> <a href="/case/01/235.html"> <img src="static/picture/1-1g006115k2-lp.jpg"> </a>
-              <div style="text-align: center;background: #f0f0f0;padding:10px 5px;font-size:12px; ">壹号公馆 新中式 265M²</div>
-            </div>
-<div class="guess-favorite-modal"> <a href="/case/01/227.html"> <img src="static/picture/1-1g00q6422co.jpg"> </a>
-              <div style="text-align: center;background: #f0f0f0;padding:10px 5px;font-size:12px; ">仙源 东南亚风格  300平</div>
+          <div class="guess-favorite-content">
+            <foreach name="interrelatedCase" item="vo">
+              <div class="guess-favorite-modal">
+                <a href="{:cmf_url('portal/case/content',['id'=>$vo['id']])}">
+                  <img src="{$vo.thumbnail|cmf_get_image_url}">
+                </a>
+                <div style="text-align: center;background: #f0f0f0;padding:10px 5px;font-size:12px; ">
+                  {$vo.name|default=''}
+                </div>
+              </div>
+            </foreach>
             </div>
  </div>
         </div>
@@ -357,33 +345,6 @@
 
 
 
-            setTimeout(
-
-            	function(){
-
-	            	$.ajax({
-
-		       			 type:'post',
-
-		       			 url:'/designercase/ajaxGuessLike',
-
-		       			 //data:{'belong':4},
-
-		       			 data:{'decorationStyleId':'1'},
-
-		       			 dataType:'html',
-
-		       			 success:function(data){
-
-		       				 $(".guess-favorite-box").html(data);
-
-		       			 },
-
-
-
-		       		 });
-
-	           }, 200);
 
 
 
@@ -421,3 +382,7 @@
   </div>
 </div>
 <include file="public@footer"/>
+
+</div>
+</body>
+</html>

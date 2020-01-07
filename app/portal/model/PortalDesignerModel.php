@@ -14,7 +14,7 @@ use think\Model;
 class PortalDesignerModel extends Model
 {
     public static function findDesigner($id){
-        return self::where(['id'=>$id])->find()->toArray();
+            return self::where(['id'=>$id])->find()->toArray();
     }
 
     public static function allDesigner(){

@@ -26,9 +26,22 @@ class PortalCaseModel extends Model
         return ['id'=>$value,'name'=>$designer['name']];
     }
 
-    public function getDesignerCase($id)
+    /**
+     * this is Cose info
+     * @param $id
+     * @return array
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public static function getDesignerCasePhotos($id)
     {
-        return self::where('did',$id)->select()->toArray();
+        return self::where('id',$id)->find()->toArray();
     }
 
+
+    public static function getInterrelatedCase($id)
+    {
+        return self::where('did',$id)->field('id,thumbnail,name')->select()->toArray();
+    }
 }
