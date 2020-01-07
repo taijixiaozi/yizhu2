@@ -99,4 +99,9 @@ class ArticleController extends HomeBaseController
         }
     }
 
+
+    public function content()
+    {
+        return $this->fetch(":article_content");
+    }
 }

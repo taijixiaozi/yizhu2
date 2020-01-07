@@ -1,0 +1,30 @@
+<div class="right fr">
+        <div class="topadvert"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;site=qq&amp;menu=yes" target="_blank"> <img src="__TMPL__/public/static/picture/news_l.jpg" alt="Made In Germ..."> </a> </div>
+        <div class="artlist" style="margin-bottom:10px">
+          <h1>热门推荐</h1>
+          <ul>
+               <php>
+                  $category = explode('.',$_SERVER['REQUEST_URI'])[0];
+                  $category_array =  explode('/',$category);
+                  $category_id = end($category_array);
+                </php>
+            <php>
+                $wheres = 'recommended = 1';
+            </php>
+             <portal:articles item="vos"  where="$wheres" order="post.create_time DESC" page="2"
+                              categoryIds="$category_id"
+                              returnVarName="articles_data">
+                 <li>
+                      <div class="fl artlistL">
+                          <a href="{:cmf_url('portal/Article/index',array('id'=>$vos['id'],'cid'=>$category_id))}" target="_blank">
+                              <img src="{$vos.thumbnail|cmf_get_image_url}" alt="{$vos.post_title|default = ''}"> </a>
+                      </div>
+                      <div class="fr artlistR">
+                          <a href="{:cmf_url('portal/Article/index',array('id'=>$vos['id'],'cid'=>$category_id))}" target="_blank" title="{$vos.post_title|default = ''}">最全的家装流程！附采购清</a>
+                          <a href="{:cmf_url('portal/Article/index',array('id'=>$vos['id'],'cid'=>$category_id))}" target="_blank" class="seeDetail">查看详情</a>                   </div>
+                    </li>
+             </portal:articles>
+      </ul>
+        </div>
+          <include file="public@reservation"/>
+      </div>

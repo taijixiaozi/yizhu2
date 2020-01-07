@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+        <taglib name="app\portal\taglib\Portal"/>
+<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<title>家装指南  /  家居配饰_我的网站</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+    <!--默认使用极速渲染模式-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--让IE调用edge引擎渲染-->
+<link rel="stylesheet" href="__TMPL__/public/static/css/common.css">
+<link rel="stylesheet" href="__TMPL__/public/static/css/index.css">
+<link rel="stylesheet" href="__TMPL__/public/static/css/renovation_knowledge.css">
+<script src="__TMPL__/public/static/js/jquery-3.4.1.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+    <!--默认使用极速渲染模式-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--让IE调用edge引擎渲染-->
+<meta content="IE=7" http-equiv="X-UA-Compatible" />
+    <!--[if lte IE 9]>
+    <div class="banners">
+    <p>喵~为了保障购物安全，享受更棒的购物体验，建议您使用新版本IE浏览器或
+      <a target="_blank" href="http://www.uc.cn/">UC浏览器</a>,
+      <a target="_blank" href="http://chrome.360.cn/">360浏览器(极速模式)</a></p>
+  </div>
+    <![endif]-->
+</head>
+<body id="website" style="position:relative">
+    <include file="public@header"/>
+
+  <div style="background:#f7f7f7">
+    <!--面包屑导航-->
+    <div class="col mbx">
+        <span>当前位置：</span>
+        <a href='http://localhost/pcmobile'>主页</a> >
+        <a href='/pcmobile/jz/'>家装指南</a> >
+        <a href='/pcmobile/jz/jjps/'>家居配饰</a> >
+    </div>
+    <!--内容-->
+    <div class="col">
+      <include file="public@recommend">
+      <div class="left fl artlist ">
+        <div style="width:880px;height:360px;"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;site=qq&amp;menu=yes" target="_blank"> <img src="__TMPL__/public/static/picture/78b1e1d0019a4788ad5436732e19ee61.jpg" alt="" style="width:880px;height:360px;"> </a> </div>
+        <div class="listtitle">
+            <navigation nav-id="3" root="">
+                 <navigationMenu root="li" >
+                            <php>
+                               if($menu['href'] == $_SERVER['REQUEST_URI']) {
+                                 $class = 'titleactive';
+                               } else {
+                                  $class =  '' ;
+                               }
+                            </php>
+                            <a href="{$menu.href|default=''}" class="{$class}"> {$menu.name|default=''}</a>
+                </navigationMenu>
+            </navigation>
+        </div>
+          <php>
+              $where=function($query){
+                $query->where('post.create_time','egt',0);
+               };
+          </php>
+        <div class="listbox">
+         <portal:articles item="vo"  where="$where" order="post.create_time DESC" page="4"
+                          categoryIds="$category_id"
+                          pageVarName="pageVar"
+                          returnVarName="articles_data">
+                <div class="item">
+                <div class="img fl">
+                    <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category_id))}" target="_blank" title="{$vo.post_title|default = ''}">
+                        <notempty name="vo.more.thumbnail">
+                        <img src="{:cmf_get_image_url($vo.more.thumbnail)}" width="300" height="200" alt="打造可心书房，软装搭配怎么选？">
+                        </notempty>
+                    </a>
+                </div>
+            <div class="info fr rel">
+              <h1 class="t">
+                  <a href="#" target="_blank" title="打造可心书房，软装搭配怎么选？">
+                      <b>{$vo.post_title|default = ''}</b>
+                  </a>
+              </h1>
+              <p class="num">{$vo.create_time|date='Y-m-d H:i:s'}
+                  <span>{$vo.post_hits}人浏览</span>
+              </p>
+              <p class="desc">{$vo.post_excerpt|msubstr=###,0,20,'utf-8',true}</p>
+              <div class="btnbox abs">
+                  <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category_id))}" target="_blank">查看详情</a>
+                  <a href="http://yiansheng.cn" target="_blank" class="two">更多装修优惠</a>
+              </div>
+            </div>
+          </div>
+            </portal:articles>
+
+             <ul class="pagination">
+                 <page/>
+             </ul>
+
+
+        </div>
+
+      </div>
+      <div class="clear"></div>
+    </div>
+    <!--页脚-->
+  </div>
+    <include file="public@footer"/>

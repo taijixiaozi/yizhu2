@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+
+        <taglib name="app\portal\taglib\Portal"/>
+<title>最全的家装流程！附采购清单装修须知_我的网站</title>
+<meta name="keywords" content="最全,的,家装,流程,附,采购,清单,装修,须知," />
+<meta name="description" content="想要装修好，又怕菜鸟上阵手忙脚乱的你，是否已经累觉不爱。中国最详细的家装流程图，看过之后，保证装修不糊涂！ 一、装修步骤 大致可分为基建期、安装期和收尾期三个阶段。" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+  <!--默认使用极速渲染模式-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <!--让IE调用edge引擎渲染-->
+<link rel="stylesheet" href="__TMPL__/public/static/css/common.css">
+<link rel="stylesheet" href="__TMPL__/public/static/css/index.css">
+<link rel="stylesheet" href="__TMPL__/public/static/css/renovation_knowledge.css">
+<script src="__TMPL__/public/static/js/jquery-3.4.1.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+  <!--默认使用极速渲染模式-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--让IE调用edge引擎渲染-->
+<meta content="IE=7" http-equiv="X-UA-Compatible" />
+  <!--[if lte IE 9]>
+  <div class="banners">
+    <p>喵~为了保障购物安全，享受更棒的购物体验，建议您使用新版本IE浏览器或
+      <a target="_blank" href="http://www.uc.cn/">UC浏览器</a>,
+      <a target="_blank" href="http://chrome.360.cn/">360浏览器(极速模式)</a></p>
+  </div>
+  <![endif]-->
+</head>
+<body id="website" style="position:relative">
+  <include file="public@header"/>
+  <div style="background:#f7f7f7">
+    <!--面包屑导航-->
+    <div class="col mbx">
+      <span>当前位置：</span>
+      <a href='http://localhost/pcmobile'>主页</a> > <a href='/pcmobile/jz/'>家装指南</a> > <a href='/pcmobile/jz/xgzc/'>选购主材</a> >  </div>
+    <!--内容-->
+    <div class="col">
+      <include file="public@recommend">
+      <div class="left fl showart">
+        <div class="article_title">
+
+          <div class="article_title_info">{$article.post_title}</div>
+          <div class="article_title_right"> <span style="color:#515151"> 发布时间：{$article.create_time|date='Y-m-d'}|更新时间： {$article.update_time|date='Y-m-d'}|来源：{$article.post_source|default='未知'}</span> </div>
+        </div>
+        <div class="artcon" deep="3">
+           <article>
+               {$article.post_content}
+           </article>
+        </div>
+          {$prev_article.id}
+           <a href='{$prev_article.id}'> 上一篇：</a>
+            <a href='{$next_article.id}'>下一篇：</a>
+</div>
+
+          <!--此处的按钮 注意限制内容长度-->
+
+
+
+      <div class="clear"></div>
+    </div>
+    <!--页脚-->
+  </div>
+  </div>
+  <include file="public@footer"/>

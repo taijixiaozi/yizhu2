@@ -32,13 +32,12 @@ function newcheckform() {
             user_phone:user_phone
         } ,
         success : function(data) {
-        $('#name').val('');
-        $('#plot_name').val('');
-        $('#house_area').val('');
-        $('#user_phone').val('');
-
-        alert("提交成功，我们将尽快与您联系");
-
+            if(data == 1){
+                //layer.msg('您已预约，稍候我们的工作人员将会电话联系您！请稍等');
+                layer.alert('您已预约，稍候我们的工作人员将会电话联系您！请稍等', {icon: 6});
+            } else {
+                layer.msg('服务器开小差啦。。。', {icon: 5});
+            }
       }
 
     });

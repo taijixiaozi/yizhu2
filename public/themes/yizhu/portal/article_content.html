@@ -2,7 +2,8 @@
 
 <html>
 <head>
-<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+
+        <taglib name="app\portal\taglib\Portal"/>
 <title>最全的家装流程！附采购清单装修须知_我的网站</title>
 <meta name="keywords" content="最全,的,家装,流程,附,采购,清单,装修,须知," />
 <meta name="description" content="想要装修好，又怕菜鸟上阵手忙脚乱的你，是否已经累觉不爱。中国最详细的家装流程图，看过之后，保证装修不糊涂！ 一、装修步骤 大致可分为基建期、安装期和收尾期三个阶段。" />
@@ -12,10 +13,10 @@
 <!--默认使用极速渲染模式-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <!--让IE调用edge引擎渲染-->
-<link rel="stylesheet" href="static/css/common.css">
-<link rel="stylesheet" href="static/css/index.css">
-<link rel="stylesheet" href="static/css/renovation_knowledge.css">
-<script src="static/js/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="__TMPL__/public/static/css/common.css">
+<link rel="stylesheet" href="__TMPL__/public/static/css/index.css">
+<link rel="stylesheet" href="__TMPL__/public/static/css/renovation_knowledge.css">
+<script src="__TMPL__/public/static/js/jquery-3.4.1.min.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="renderer" content="webkit">
@@ -40,60 +41,11 @@
       <a href='http://localhost/pcmobile'>主页</a> > <a href='/pcmobile/jz/'>家装指南</a> > <a href='/pcmobile/jz/xgzc/'>选购主材</a> >  </div>
     <!--内容-->
     <div class="col">
-      <div class="right fr">
-        <div class="topadvert"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;site=qq&amp;menu=yes" target="_blank"> <img src="static/picture/news_l.jpg" alt="Made In Germ..."> </a> </div>
-        <div class="artlist" style="margin-bottom:10px">
-          <h1>热门家装知识推荐</h1>
-          <ul>
-            <li>
-              <div class="fl artlistL"> <a href="/pcmobile/jz/xgzc/309.html" target="_blank"> <img src="static/picture/1-1g00r1424k18-lp.png" alt="最全的家装流程！附采购清"> </a> </div>
-              <div class="fr artlistR"> <a href="/pcmobile/jz/xgzc/309.html" target="_blank" title="最全的家装流程！附采购清">最全的家装流程！附采购清</a> <a href="/pcmobile/jz/xgzc/309.html" target="_blank" class="seeDetail">查看详情</a> </div>
-            </li>
-<li>
-              <div class="fl artlistL"> <a href="/pcmobile/jz/hbjz/308.html" target="_blank"> <img src="static/picture/1-1g00r1403xl-lp.png" alt="装修验收标准，赶紧收藏"> </a> </div>
-              <div class="fr artlistR"> <a href="/pcmobile/jz/hbjz/308.html" target="_blank" title="装修验收标准，赶紧收藏">装修验收标准，赶紧收藏</a> <a href="/pcmobile/jz/hbjz/308.html" target="_blank" class="seeDetail">查看详情</a> </div>
-            </li>
-<li>
-              <div class="fl artlistL"> <a href="/pcmobile/jz/zxzs/307.html" target="_blank"> <img src="static/picture/1-1g00r13sxh-lp.png" alt="装修选材三大忌，千万别犯"> </a> </div>
-              <div class="fr artlistR"> <a href="/pcmobile/jz/zxzs/307.html" target="_blank" title="装修选材三大忌，千万别犯">装修选材三大忌，千万别犯</a> <a href="/pcmobile/jz/zxzs/307.html" target="_blank" class="seeDetail">查看详情</a> </div>
-            </li>
-<li>
-              <div class="fl artlistL"> <a href="/pcmobile/jz/xgzc/306.html" target="_blank"> <img src="static/picture/1-1g00r13554v3-lp.jpg" alt="装修地板怎么选如何区分？"> </a> </div>
-              <div class="fr artlistR"> <a href="/pcmobile/jz/xgzc/306.html" target="_blank" title="装修地板怎么选如何区分？">装修地板怎么选如何区分？</a> <a href="/pcmobile/jz/xgzc/306.html" target="_blank" class="seeDetail">查看详情</a> </div>
-            </li>
-
-          </ul>
-        </div>
-        <div class="signForm_box">
-          <div class="signForm_imgBox"> <img src="static/picture/yuyuesheji.png" alt=""> </div>
-          <form action="" method="post" id="reservationDesignFrom">
-            <input name="orignURL" type="hidden">
-            <div class="signForm">
-  <div>
-    <label>您的称呼</label>
-    <input type="text" name="name" id="name" placeholder="先生/女士">
-  </div>
-  <div>
-    <label>小区名称</label>
-    <input type="text" name="apartment" id="xq" placeholder="请输入小区名称">
-  </div>
-  <div>
-    <label>房屋面积</label>
-    <input type="text" name="area" id="mj" placeholder="1室1厅1卫 65㎡">
-  </div>
-  <div>
-    <label>您的电话</label>
-    <input type="text" name="phone"  id="tel"placeholder="请输入手机号码">
-  </div>
-  <input type="hidden" name="serviceType" value="APPOINTMENT_DESIGNER">
-  <a onClick="newcheckform()"  class="confirmation ">确认报名</a> </div>
-<script src="static/js/from.js"></script> 
-          </form>
-        </div>
-      </div>
+      <include file="public@recommend">
       <div class="left fl showart">
         <div class="article_title">
-          <div class="article_title_info">最全的家装流程！附采购清单装修须知</div>
+            {$article.id}
+          <div class="article_title_info"></div>
           <div class="article_title_right"> <span style="color:#515151"> 发布时间：2017-10-08 21:48 &nbsp;|&nbsp;作者： admin &nbsp;|&nbsp;来源： 未知</span> </div>
         </div>
         <div class="artcon" deep="3">想要装修好，又怕菜鸟上阵手忙脚乱的你，是否已经累觉不爱。中国最详细的家装流程图，看过之后，保证装修不糊涂！<br />
@@ -188,32 +140,4 @@
     <!--页脚--> 
   </div>
 </div>
-<div class="shj-footer" style="margin-top:0px;">
-  <div class="shj-footer-top">
-    <div class="shj-footer-top-center"> <img class="shj-footer-top-center-intro" src="static/picture/footer_bottom_7.png" />
-      <div class="shj-footer-help-link">
-        <div class="shj-footer-help-link-modal"> <a href="/pcmobile/about/" >公司简介</a>  <a  href="/pcmobile/about/" target="_blank">关于我们</a>  <a  href="/pcmobile/about/02/" target="_blank">最新动态</a>  <a  href="/pcmobile/about/03/" target="_blank">企业文化</a>  <a  href="/pcmobile/about/04/" target="_blank">公司荣誉</a>  </div>
-        <div class="shj-footer-help-link-modal"><a href="/pcmobile/case/" >案例作品</a>   <a  href="/pcmobile/case/01/" target="_blank">精品案例</a>  <a  href="/pcmobile/case/02/" target="_blank">全景案例</a>  </div>
-        <div class="shj-footer-help-link-modal"><a href="/pcmobile/sggy/" >施工工艺</a>  <a  href="/pcmobile/sggy/03/" target="_blank">严苛验收</a>  <a  href="/pcmobile/sggy/01/" target="_blank">精湛工艺</a>  <a  href="/pcmobile/sggy/02/" target="_blank">环保材料</a>  <a  href="/pcmobile/sggy/04/" target="_blank">在建工地</a>  </div>
-        <img class="shj-footer-top-center-erweima" src="static/picture/footer_erweima.jpg" /> <a target="_blank" class="shj-footer-top-center-weibo" style="display:inline-block;" href="http://www.aizhanku.com/"><img src="static/picture/weibo.jpg" /></a> <a target="_blank" class="shj-footer-top-center-weibo" style="display:inline-block;" href="http://www.aizhanku.com/"><img src="static/picture/tianmao.jpg" /></a>
-        <div class="shj-footer-top-center-tel"> <img src="static/picture/footer_bottom_1.png" />
-          <p style="font-weight: bold;font-size: 30px;color: #84c225;margin:10px auto;text-align: center;"></p>
-          <p style="font-weight: bold;font-size: 15px;color: #8f8f8f;text-align: center;">全国工程投诉电话:</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="shj-footer-bottom" id="ipgbpgzfzb">
-    <div class="shj-footer-bottom-center">
-      <div class="shj-footer-bottom-info">
-        <p>Copyright &copy; 2004-2011 DEDECMS. 织梦科技 版权所有 <a style="color:#212121;" href="http://www.aizhanku.com/">dede模板</a></p><p></p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="shj_xuanfu_menu_box" id="js_floatMenu"> <span class="float-menu-title">快速导航</span> <a href="http://www.aizhanku.com/" target="_blank" class="float-menu-btn" data-item="1" style="margin-top: 35px;"> <img src="static/picture/z1.png"/> </a> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;site=qq&amp;menu=yes" class="float-menu-btn bookingRoomFromAllBtn" data-item="2"> <img src="static/picture/z2.png"/> </a> <a  target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;site=qq&amp;menu=yes" class="float-menu-btn reservationDesign" data-item="3"> <img src="static/picture/z3.png"/> </a> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;site=qq&amp;menu=yes" target="_blank" class="float-menu-btn quotedPriceBtnAll" data-item="4"> <img src="static/picture/z4.png"/> </a> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;site=qq&amp;menu=yes" class="float-menu-btn reservationVisit" data-item="5"> <img src="static/picture/z5.png"/> </a> <a class="float-menu-btn" data-item="6" id="leftBackTop"> <img src="static/picture/z6.png"/> </a> </div>
-<script src="static/js/service.js"></script> 
-<script src="static/js/menu.js"></script> 
-
-</div>
-</html>
+<include file="public@footer"/>

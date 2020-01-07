@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="__TMPL__/public/static/css/idangerous.swiper.css" />
 <link rel="stylesheet" href="__TMPL__/public/static/css/swiper.min.css" />
 <script src="__TMPL__/public/static/js/idangerous.swiper.min.js"></script>
-<script src="__TMPL__/public/static/js/jquery-1.11.3.min.js"></script>
+<script src="__TMPL__/public/static/js/jquery-3.4.1.min.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="renderer" content="webkit">
@@ -54,32 +54,7 @@
           <a href='/pcmobile/designer/'>设计团队</a> >
       </div>
       <div class="master_left fr">
-        <div class="signForm_box">
-          <div class="signForm_imgBox"> <img src="__TMPL__/public/static/picture/yuyuesheji.png" alt=""> </div>
-          <form action="" method="post" id="reservationDesignFrom">
-            <input name="orignURL" type="hidden">
-            <div class="signForm">
-  <div>
-    <label>您的称呼</label>
-    <input type="text" name="name" id="name" placeholder="先生/女士">
-  </div>
-  <div>
-    <label>小区名称</label>
-    <input type="text" name="apartment" id="xq" placeholder="请输入小区名称">
-  </div>
-  <div>
-    <label>房屋面积</label>
-    <input type="text" name="area" id="mj" placeholder="1室1厅1卫 65㎡">
-  </div>
-  <div>
-    <label>您的电话</label>
-    <input type="text" name="phone"  id="tel"placeholder="请输入手机号码">
-  </div>
-  <input type="hidden" name="serviceType" value="APPOINTMENT_DESIGNER">
-  <a onClick="newcheckform()"  class="confirmation ">确认报名</a> </div>
-<script src="static/js/from.js"></script> 
-          </form>
-        </div>
+        <include file="public@reservation"/>
         <div style="background:#fff;padding:10px;">
           <div class="excellent_case"> <span>明星设计师推荐</span> </div>
           <div style="position: relative;"> <a class="arrow-lefts excellent_design_left" href="#"><img src="__TMPL__/public/static/picture/knowledge_l.png" alt=""></a> <a class="arrow-rights excellent_design_right" href="#"><img src="__TMPL__/public/static/picture/knowledge_r.png" alt=""></a>
