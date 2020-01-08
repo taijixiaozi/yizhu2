@@ -23,7 +23,7 @@
 </div>
 <div class="shj_xuanfu_menu_box" id="js_floatMenu">
     <span class="float-menu-title">快速导航</span>
-    <a href="http://www.aizhanku.com/" target="_blank" class="float-menu-btn" data-item="1" style="margin-top: 35px;">
+    <a href="javascript:;"  class="float-menu-btn advisory" data-item="1" style="margin-top: 35px;">
         <img src="__TMPL__/public/static/picture/z1.png"/>
     </a>
     <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=88889999&amp;site=qq&amp;menu=yes" class="float-menu-btn bookingRoomFromAllBtn" data-item="2">
@@ -42,8 +42,26 @@
         <img src="__TMPL__/public/static/picture/z6.png"/>
     </a>
 </div>
+<script>
+    $('.advisory').click(function(){
+        //页面层
+        layer.open({
+            offset: 'rb',
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['500px', '500px'], //宽高
+            anim: 3,
+            shade:0,
+            title: ['客服列表', 'background-color:#BD9F4F;'],
+            content: '  <div class="advisory_content">\n' +
+                '111' +
+                '  </div>'
+        });
+    });
+</script>
 <script src="__TMPL__/public/static/js/service.js"></script>
 <script src="__TMPL__/public/static/js/menu.js"></script>
+<script src="__TMPL__/public/static/layer/layer.js"></script>
 </div>
 </body>
 </html>

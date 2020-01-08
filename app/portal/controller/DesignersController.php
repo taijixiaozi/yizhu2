@@ -35,12 +35,16 @@ class DesignersController extends HomeBaseController{
 
         //设计师相关案例
         $designerCase = new  PortalCaseModel();
-
         $caseInfo = $designerCase->getInterrelatedCase($id);
 
+        //推荐设计师
+        $queryRecommendation= $portalDesignerModel->queryRecommendation();
+        //推荐案例
+        $queryCase = $designerCase->queryCase();
         $this->assign('designerInfo', $designerInfo);
         $this->assign('caseInfo', $caseInfo);
-
+        $this->assign('queryRecommendation', $queryRecommendation);
+        $this->assign('queryCase', $queryCase);
         return $this->fetch(':designer_content');
     }
 }

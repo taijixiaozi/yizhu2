@@ -1,4 +1,4 @@
-/* 织梦58（dede58.com）做最好的织梦整站模板下载网站 */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -1575,7 +1575,7 @@ a:hover {
 	overflow: hidden;
 	_color: #FF3FFF;
 	_-webkit-filter: chroma(color=#FF3FFF);
-_ filter: chroma(color=#FF3FFF);
+	_filter: chroma(color=#FF3FFF);
 	border: 8px dashed transparent;
 }
 .ui-popup-follow .ui-dialog-arrow-a, .ui-popup-follow .ui-dialog-arrow-b {
@@ -2843,4 +2843,20 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	line-height: 32px;
 	font-size: 14px;
 	border-radius: 8px;
+}
+.advisory_content{
+	width: 500px;
+	height: 500px;
+	background-image:url('http://yizhu.api/themes/yizhu/public/static/images/1578452464.jpg');
+}
+
+.nav_top_one{
+	width: 220px !important;
+	background-color: #303030;
+	color: white;
+	height: 55px;
+	margin-right: 20px !important;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 55px;
 }

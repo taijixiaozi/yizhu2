@@ -44,4 +44,9 @@ class PortalCaseModel extends Model
     {
         return self::where('did',$id)->field('id,thumbnail,name')->select()->toArray();
     }
+
+    public static function queryCase()
+    {
+        return self::where('is_recommend', '1')->select()->toArray();
+    }
 }

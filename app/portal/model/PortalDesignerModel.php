@@ -20,4 +20,9 @@ class PortalDesignerModel extends Model
     public static function allDesigner(){
         return self::order('id', 'desc')->paginate(1);
     }
+
+    public static function queryRecommendation()
+    {
+        return self::where('is_recommend', '1')->select()->toArray();
+    }
 }
